@@ -1,0 +1,48 @@
+<div class="page-header">
+	<h1>View Vote</h1>
+</div>
+<div class="well well-lg">
+
+	<strong>VoteName: </strong>
+
+	{{votename}}
+	<h4 style="{{colordolor}}">{{aftervoteparagraph}}</h4>
+</div>
+<div ng-hide="vote.userVoted">
+	<p class="lead">Please select one of the following options.</p>
+	<form role="form" ng-submit="throwvote()">
+		<div ng-repeat="candidate in candidatenames" class="radio">
+			<label>
+				<input type="radio" name="response" ng-model="$parent.choice" value="{{candidate}}"></input>
+				{{candidate}}
+			</label>
+		</div>
+		<p><hr></p>
+		<div class="row">
+			<div class="col-xs-6">
+				<a href="#/listvotes" class="btn btn-default" role="button">
+					<span class="glyphicon glyphicon-arrow-left">Back to Votes</span>
+				</a>
+			</div>
+			<div class="col-xs-6">
+				<button class="btn btn-primary pull-right" type="submit">
+					Vote &raquo;
+				</button>
+			</div>
+			<div class="col-xs-6">
+				<a href="#/voteresults/{{voteIdurl}}" class="btn btn-default" role="button">
+					<span class="glyphicon glyphicon-arrow-right">Check vote results</span>
+				</a>
+			</div>
+
+		</div>
+	</form>
+	<form role="form" ng-submit="minevotes()" ng-show="showminer">
+		<div class="col-xs-6">
+			<button class="btn btn-primary pull-right" type="submit">
+				Mine and Close vote &raquo;
+			</button>
+		</div>
+		<h5 style="color:blue">{{mininglog}}</h5>
+	</form>
+</div>

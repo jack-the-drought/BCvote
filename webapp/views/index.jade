@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  div(ng-app='vote')
+    nav.navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      div.navbar-header
+        a.navbar-brand(href='')= title
+    div.container
+      div(ng-view)

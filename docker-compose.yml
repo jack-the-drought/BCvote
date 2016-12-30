@@ -1,0 +1,23 @@
+version: '2'
+services:
+  webapp:
+    build: ./webapp
+    ports:
+      - "3000:3000"
+    command: sh -c "npm start"
+    links:
+      - mongo
+      - btcjohn
+  mongo:
+    image: mongo
+    volumes:
+      - './data:/data/db'
+    #container_name: zehahaha
+  btcjohn:
+    build: ./johnbtc
+    container_name: john_btc
+    volumes:
+      - './johnbtcdata:/root/.bitcoin/regtest'
+    
+
+     #find a way to do rt generate 101

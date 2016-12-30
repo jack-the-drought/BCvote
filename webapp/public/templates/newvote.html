@@ -1,0 +1,38 @@
+<div class="page-header">
+	Create a new Vote
+</div>
+<form role="form" ng-submit="createVote()">
+	<div class="form-group">
+		<label for="voterQuestion">Voting Subject</label>
+		<input type="text" ng-model="vote.votename" class="form-control" id="voterQuestion" placeholder="Enter voter question"></input>
+	</div>
+	<div class="form-group">
+		<label>Choices</label>
+		<div ng-repeat="candidate in vote.candidates">
+			<input type="text" ng-model="candidate.text" class="form-control" placeholder="Enter choice {{$index+1}} text">
+			<br>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<button type="button" class="btn btn-default" ng-click="addChoice()">
+				<span class="glyphicon glyphicon-plus"></span>
+				Add Option
+			</button>
+		</div>
+	</div>
+	<p><hr></p>
+	<div class="row">
+		<div class="col-xs-6">
+			<a href="#/listvotes" class="btn btn-default" role="button">
+				<span class="glyphicon glyphicon-arrow-left"></span>
+				Back to Votes list
+			</a>
+		</div>
+		<div class="col-xs-6">
+			<button class="btn btn-primary pull-right" type="submit">
+				Create vote &raquo;
+			</button>
+		</div>
+	</div>
+</form>
